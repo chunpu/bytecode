@@ -1,0 +1,21 @@
+{
+  "name": "getbytes",
+  "version": "1.0.1",
+  "description": "javascript getBytes(), support all unicode",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+	"readme": "pretty-readme > readme.md"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "istanbul": "^0.3.6",
+    "mocha": "^2.1.0",
+    "poor": "latest"
+  },
+  "author": "chunpu",
+  "license": "ISC",
+  "dependencies": {
+    "min-util": "latest"
+  }
+}
