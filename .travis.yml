@@ -1,0 +1,10 @@
+language: node_js
+branches:
+  only:
+  - gh-pages
+env:
+  global:
+  - SAUCE_USERNAME: chunpu2
+  - secure: OPy1n7w/SYZNQmRHBMeykUDAKkEZqrGYNSXqOc6KXfUsYvGc2QBkHBIz73xE7uPuOh9dte5u8T1iagPu5JPE2owvba+UXia59YaHK0dsT5Y1JKnbmIcUA8pyeSMqHHbuYpMK0cUiqi/IW9SjwTQpgntnJmXNwfycVnYu8pqhvznsmje9oZotVvNPZcPeXbnqL8/I7Y3oLJswp9lrGQFIwihLiO33Jua1dbvffvHhd58gHuL4Dkenc4YDHmVotYYdzWMcca6rZ3/8tpe93LHhZ8TA+B8TZqEEbBp3x0iwTSTm7qkr2WPCfDT4ee+6cCbj8dOspr3KMvRXU7rZb4TY9Gdxg+bQ6QZVjFEV16JC8hIf9cD95uamwdndu5QOgBouIFSCepgL+EgHguWOQIAswouzgkWbK4LA3Q3IX61I9QpSMqOiRPhg2+CJHCDWHcyUKnjnYBzxcrbQkjfPBlAzIgTihC9s3bQ+GV1dzPAohbvyFw2Gw1j+BeWi9T8pME1pC7HyN4Cmo1P/zB7bJyk66xCFqq1D9JlnFNkMjCDh9xQMa9RN/VyMqUMWo/SykYmBTibmmn8ijQqOijs4AZfXsAa+Qz50r7uSwID2Gkk2YnPetcZpeYI0N5VWV5YSoLN6M68SJI8tK/nqAA6hdt7fX5nGpc7twiKemeUpLFJHKKc=
+script: npm run test-travis
+after_script: npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls
