@@ -9,6 +9,9 @@ describe('decode', function() {
 	it('other unicode', function() {
 		assert.deepEqual(byteCode.decode('中文'), [228, 184, 173, 230, 150, 135])
 	})
+
+	it('fuxk', function() {
+	})
 })
 
 describe('encode', function() {

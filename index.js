@@ -1,5 +1,7 @@
 // decode or encode **utf8 byte code** rather than char code
 
+// https://github.com/arahaya/utf8.js/blob/master/utf8.js
+
 var _ = require('min-util')
 var InvalidCharacterError = 'InvalidCharacterError'
 
@@ -34,19 +36,19 @@ exports.encode = function(byteCodes) {
 
 	for (var i = 0; i < byteCodes.length; i++) {
 		byteCode = byteCodes[i]
-		if (byteCode > 0xe0) {
+		if (byteCode > 0xe0) { // 224
 			charCode = (byteCode & 0x0f) << 12
 			byteCode = byteCodes[++i]
 			charCode |= (byteCode & 0x3f) <<  6
 			byteCode = byteCodes[++i]
 			charCode |= byteCode & 0x3f
-		} else if (byteCode > 0xc0) {
+		} else if (byteCode > 0xc0) { // 192
 			charCode = (byteCode & 0x1f) << 6
 			byteCode = byteCodes[++i]
 			charCode |= (byteCode & 0x3f) << 6
-		} else if (byteCode > 0x80) {
+		} else if (byteCode > 0x80) { // 128
 			throw new Error(InvalidCharacterError)
-		} else {
+		} else { // 0-128
 			charCode = byteCode
 		}
 		arr.push(String.fromCharCode(charCode))
